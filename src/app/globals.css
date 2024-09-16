@@ -1,4 +1,14 @@
-@tailwind base;
+body{
+  margin: 0px;
+}
+
+
+
+
+
+
+
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -24,4 +34,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
