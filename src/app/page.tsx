@@ -4,7 +4,6 @@ import styles from './page.module.scss'
 import Image from 'next/image';
 import Lenis from '@studio-freight/lenis'
 import { useTransform, useScroll, motion } from 'framer-motion';
-// import ImageTrack from './components/image_track';
 
 const images = [
   "6.jpeg",
@@ -76,7 +75,6 @@ export default function Home() {
         <Column images={[images[9], images[10], images[11]]} y={y4 as unknown as number}/>
       </div>
       <div className={styles.spacer}>
-        {/* <ImageTrack/> */}
       </div>
     </main>
   )
