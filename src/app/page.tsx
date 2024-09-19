@@ -23,6 +23,8 @@ const images = [
 export default function Home() {
   
   const gallery = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const [dimension, setDimension] = useState({width:0, height:0});
 
   const { scrollYProgress } = useScroll({
@@ -34,6 +36,12 @@ export default function Home() {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3])
   const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25])
   const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3])
+
+  useEffect(() => {
+    if(videoRef.current) {
+      videoRef.current.playbackRate = 2.0;
+    }
+  }, []);
 
   useEffect( () => {
     const lenis = new Lenis()
@@ -59,14 +67,19 @@ export default function Home() {
   return (
     <main className={styles.main}>
        <div className={styles.videoContainer}>
-        <video 
+       <h1 className={styles.heading}>Balarin</h1> 
+       <h3 className="text-l font-bold text-white">Contemporary Dance</h3>
+       <div className={styles.videoBackground}>
+       <video
+         ref={videoRef} 
           src="/videos/main.mp4" 
-          className={styles.videoBackground}
-          autoPlay 
+          className={styles.video}
+          autoPlay
           muted
           loop = {true}
           playsInline 
         />
+       </div>
       </div>
       <div ref={gallery} className={styles.gallery}>
         <Column images={[images[0], images[1], images[2]]} y={y as unknown as number}/>

@@ -58,7 +58,6 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    padding-bottom: 4vh;
 }
 
 .videoBackground {
@@ -69,53 +68,25 @@
     height: 100%;
     object-fit: cover;
     transform: translate(-50%, -50%);
+    background-color: black;
 }
 
-.gap{
-    height: 4vh;
-    background: rgb(45, 45, 45);   
+.video {
+  position: absolute;
+  left: 10vw;
+  top: 10vh;
+  width: 61.5vw;
+  height: auto;
+  z-index: 1;
 }
 
-.track-body {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(45, 45, 45);
-    margin: 0;
-    overflow: hidden;
-  }
-  
-  .track-container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .image-track {
-    display: flex;
-    gap: 4vmin;
+.heading {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    cursor: grab;
-  }
-  
-  .track-image {
-    min-width: 300px;
-    height: 400px;
-    overflow: hidden;
-    border-radius: 10px;
-    position: relative;
-  }
-  
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    user-select: none;
+    right: 10vh;
+    text-align: right;
+    font-family: 'Benedict', sans-serif;
+    font-weight: 700;
+    color: #FC1EB5;
+    font-size: 100px;
+    z-index: 100;
   }
