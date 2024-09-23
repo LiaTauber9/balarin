@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import './globals.css'
-import { Inter } from 'next/font/google'
 import { twMerge } from 'tailwind-merge';
 import { Varela_Round } from 'next/font/google';
 
