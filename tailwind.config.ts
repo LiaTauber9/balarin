@@ -2,8 +2,8 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/sections/**/*.{js,ts,jsx,tsx}', // If you have a sections folder
   ],
   theme: {
     container: {
@@ -25,8 +25,12 @@ const config: Config = {
     },
     extend: {
       colors: {
+        'header-pink': '#FC1EB5',
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        varela: ['"Varela Round"', 'sans-serif'], 
       },
     },
   },

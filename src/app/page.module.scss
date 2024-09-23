@@ -1,6 +1,7 @@
 .gallery{
     height: 175vh;
-    background: rgb(45, 45, 45);
+    // background: rgb(45, 45, 45);
+    // background: white;
     position: relative;
     display: flex;
     gap: 2vw;
@@ -39,9 +40,11 @@
         }
     }
 }
+
 .spacer{
     height: 100vh;
-    background: rgb(45, 45, 45); 
+    background: white; 
+    // background: rgb(45, 45, 45); 
 //     background-image:  linear-gradient(to top,
 //     rgba(255,255,255,1) 0%,
 //     rgba(255,255,255,0) 20%,
@@ -60,33 +63,58 @@
     overflow: hidden;
 }
 
-.videoBackground {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    background-color: black;
-}
-
 .video {
   position: absolute;
-  left: 10vw;
-  top: 10vh;
-  width: 61.5vw;
-  height: auto;
-  z-index: 1;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
-.heading {
-    position: absolute;
-    right: 10vh;
-    text-align: right;
+  .logo_quot_layer {
+    position: absolreute;
+    top: 70px;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    gap: 10vh;
+  }
+
+  .quote{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // left: 10vh;
+    // top: 60%;
     font-family: 'Benedict', sans-serif;
-    font-weight: 700;
-    color: #FC1EB5;
-    font-size: 100px;
+    font-weight: 400;
+    // color: white;
+    // color: #FC1EB5;
     z-index: 100;
   }
+
+  .author{
+    font-weight: 200;
+  }
+
+  .logoLayer {
+    position: relative;
+    top: 10vh;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 100;
+    opacity: 0.2;
+  }
+
+  @media screen and (max-width: 768px) {
+   .gallery .column{
+        width: 50%;
+        min-width: 100px;
+    }
+}
