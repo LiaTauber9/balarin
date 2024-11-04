@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { images } from '@/assets/images';
 import Lenis from '@studio-freight/lenis';
@@ -7,6 +7,7 @@ import Image from "next/image";
 
 export default function ParallaxSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const {height} = useDimention();
   const { width } = useDimention();
   console.log("ParallaxSection -> height", height);
@@ -39,28 +40,55 @@ export default function ParallaxSection() {
       animationFrameId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf)
-    return () => cancelAnimationFrame(animationFrameId); 
+
+    // requestAnimationFrame(raf)
+    // return () => cancelAnimationFrame(animationFrameId); 
+    const resize = () => {
+
+      setDimensions({width: window.innerWidth, height: window.innerHeight})
+
+    }
+
+
+
+    window.addEventListener("resize", resize)
+
+    requestAnimationFrame(raf);
+
+    resize();
+
+
+
+    return () => {
+
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(animationFrameId); 
+
+    }
+
+    
      
   }, []);
+
+  
 
     return (
       <div className="flex flex-row h-[175vh] w-full gap-[2vw] p-[2vw] box-border overflow-hidden" ref={containerRef}>
         {
         width > 768 ?  
         columnsHtml.map((column) => (
-          <div key={column.key} className="w-[25%]">
+          <div key={column.key} className="w-[25%] h-full relative flex">
             {column}
           </div>
         ))
         : width >= 480 ?
         [columnsHtml[0], columnsHtml[1], columnsHtml[2]].map((column) => (
-          <div key={column.key} className="w-[33%]">
+          <div key={column.key} className="w-[33%] h-full relative flex">
             {column}
           </div>
         ))
         : [columnsHtml[0], columnsHtml[1]].map((column) => (
-          <div key={column.key} className="w-[50%]">
+          <div key={column.key} className="w-[50%] h-full relative flex">
             {column}
           </div>
         ))
@@ -72,7 +100,7 @@ export default function ParallaxSection() {
 const Column = ({ y, top = "0", images: image }: { y: MotionValue; top?: string; images: string[] }) => {
   return (
     <motion.div
-      className="h-full w-full flex flex-col gap-[2vw] relative top-[-45%]"
+      className="h-full w-full flex flex-col gap-[2vw] relative"
       style={{ y, top }}
     >
       {image.map((image, index) => (
@@ -80,7 +108,7 @@ const Column = ({ y, top = "0", images: image }: { y: MotionValue; top?: string;
           <Image
             src={image}
             fill
-            objectFit="cover"
+            className="object-cover object-center"
             alt={""} />
         </div>
       ))}

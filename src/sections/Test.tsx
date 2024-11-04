@@ -1,5 +1,5 @@
 // 'use client';
-// import { useEffect, useRef, useState } from 'react';
+// import { useEffect, useRef, useState, useLayoutEffect } from 'react';
 // import styles from '../app/page.module.scss'
 // import Image from 'next/image';
 // import Lenis from '@studio-freight/lenis'
@@ -61,7 +61,7 @@
 //   }, [])
 
 //   return (
-//     <main className={styles.main}>
+//     <div className={styles.main}>
 //       <>
 //       {Hero(isMobile)}
 //       </>
@@ -89,7 +89,7 @@
 //      }
 //           <div className="h-[100vh]"></div>
 
-//     </main>
+//     </div>
 //   )
 // }
 
@@ -117,6 +117,3 @@
 //   )
 // }
 
-// function useLayoutEffect(arg0: () => () => void, arg1: never[]) {
-//   throw new Error('Function not implemented.');
-// }

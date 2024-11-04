@@ -5,7 +5,6 @@ import styles from './page.module.scss'
 // import { useTransform, useScroll, motion } from 'framer-motion';
 import { Hero } from '@/sections/Hero';
 import ParallaxSection from '@/sections/ParallaxSection';
-// import HomeTest from '@/sections/Test';
 
 
 export default function Home() {
@@ -54,9 +53,8 @@ export default function Home() {
     <main className={styles.main}>
       {Hero(isMobile)}
       {ParallaxSection()}
-      <>
-      </>
      <div className="h-[100vh]"></div>
+     
     </main>
   )
 }
