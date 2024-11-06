@@ -40,7 +40,7 @@ export const Hero = (isMobile: boolean) => {
                         </h1>
                     </div>
                     </div>
-                    <div className='w-screen md:hidden'>
+                    <div className='over-flow-hidden w-full md:w-[55vw]'>
                     <ItemTicker />
                     </div>
                     

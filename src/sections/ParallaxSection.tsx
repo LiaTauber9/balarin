@@ -73,7 +73,7 @@ export default function ParallaxSection() {
   
 
     return (
-      <div className="flex flex-row h-[175vh] w-full gap-[2vw] p-[2vw] box-border overflow-hidden" ref={containerRef}>
+      <div className="absolute top-0 left-0 flex flex-row h-[175vh] w-full gap-[2vw] p-[2vw] box-border overflow-hidden" ref={containerRef}>
         {
         width > 768 ?  
         columnsHtml.map((column) => (
@@ -100,7 +100,7 @@ export default function ParallaxSection() {
 const Column = ({ y, top = "0", images: image }: { y: MotionValue; top?: string; images: string[] }) => {
   return (
     <motion.div
-      className="h-full w-full flex flex-col gap-[2vw] relative"
+      className="h-full w-full flex flex-col gap-[2vw] absolute"
       style={{ y, top }}
     >
       {image.map((image, index) => (

@@ -1,7 +1,8 @@
 import MenuIcon from '@/assets/icons/icon-menu.svg';
 import { logo } from '@/assets/images';
 import Image from 'next/image';
-import { ItemTicker } from './ItemTicker';
+// import { ItemTicker } from './ItemTicker';
+import SocialMediaIcons from '@/app/components/SocialMediaIcons';
 
 
 
@@ -24,8 +25,9 @@ export const Header = ({ id }: { id?: string }) => {
               </span>
             </button>
           </div>
-          <div className='hidden md:block w-70% over-flow-hidden w-[50vw]'>
-            <ItemTicker />
+          <SocialMediaIcons />
+          {/* <div className='hidden md:block w-70% over-flow-hidden w-[50vw]'>
+            <ItemTicker /> */}
             
             {/* <nav className='flex items-center gap-6 justify-around'>
               <a href='' className="text-white/70 hover:text-white transition">ביס למחול מודרני-עכשווי</a>
@@ -33,7 +35,7 @@ export const Header = ({ id }: { id?: string }) => {
               <a href="" className='text-white/70 hover:text-white transition'>תחרויות ריקוד</a>
               <a href="" className='text-white/70 hover:text-white transition'>ריקוד לבת-מצווה</a>
             </nav> */}
-          </div>
+          {/* </div> */}
           <div className='border h-10 w-16 rounded-lg inline-flex justify-center items-center border-[#FC1EB5]/20'><Image src={logo.src} alt='Balarin' width={52} height={56} /></div>
         </div>
       {/* </div> */}
