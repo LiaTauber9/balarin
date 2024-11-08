@@ -2,15 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { images } from '@/assets/images';
 import Lenis from '@studio-freight/lenis';
-import useDimention from '@/utils/useDimention';
+// import useDimention from '@/utils/useDimention';
 import Image from "next/image";
 
 export default function ParallaxSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const { height } = useDimention();
-  const { width } = useDimention();
-  console.log("ParallaxSection -> height", height);
+  // const { height } = useDimention();
+  // console.log("ParallaxSection -> height", height);
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -43,10 +42,10 @@ export default function ParallaxSection() {
     layoutEffect: true,
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, height * 2]);
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 3.1]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, dimensions.height * 2]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, dimensions.height * 3.3]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, dimensions.height * 1.25]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, dimensions.height * 3.1]);
 
   const columnsHtml = [
     <Column key="column-0" images={[images[0], images[1], images[2], images[0]]} y={y} top="-45%" />, 
@@ -58,23 +57,25 @@ export default function ParallaxSection() {
   return (
     <div className="relative flex flex-row h-[175vh] w-full gap-[2vw] p-[2vw] box-border overflow-hidden" ref={containerRef}>
       {
-        width > 768 ?  
+        dimensions.width > 768 ?  
         columnsHtml.map((column) => (
           <div key={column.key} className="w-[25%] h-full relative flex">
             {column}
           </div>
         ))
-        : width >= 480 ?
+        : dimensions.width >= 480 ?
         [columnsHtml[0], columnsHtml[1], columnsHtml[2]].map((column) => (
           <div key={column.key} className="w-[33%] h-full relative flex">
             {column}
           </div>
         ))
-        : [columnsHtml[0], columnsHtml[1]].map((column) => (
+        : dimensions.width > 0 ? 
+        [columnsHtml[0], columnsHtml[1]].map((column) => (
           <div key={column.key} className="w-[50%] h-full relative flex">
             {column}
           </div>
         ))
+        : null
       }
     </div>
   );
