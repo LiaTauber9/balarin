@@ -9,7 +9,7 @@ export const Hero = (isMobile: boolean) => {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     return (
-        <div className="relative w-full h-screen">
+        <div className="w-full h-screen">
             {/* Video Background */}
             <video
                 ref={videoRef}
@@ -30,7 +30,7 @@ export const Hero = (isMobile: boolean) => {
                 {/* Logo and Quote */}
                 <div className={styles.videoContainer}>
                     <div className="flex flex-col justify-center items-center">
-                    <Image className={styles.logoLayer} src={logo} alt="" width={600} />
+                    <Image className={styles.logoLayer} src={logo} alt="" width={600} height={800} />
                     <div className={styles.quote}>
                         <div lang="en" className="text-white text-left text-xl sm:text-2xl lg:text-6xl">
                             Dance is the hidden language of the soul

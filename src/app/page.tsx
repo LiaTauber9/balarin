@@ -53,7 +53,7 @@ export default function Home() {
     <main className={styles.main}>
       {Hero(isMobile)}
       {ParallaxSection()}
-     <div className="relative h-[100vh]"></div>
+     <div className="h-[100vh]"></div>
      
     </main>
   )

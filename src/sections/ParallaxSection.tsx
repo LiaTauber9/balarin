@@ -88,7 +88,7 @@ const Column = ({ y, top = "0", images: image }: { y: MotionValue; top?: string;
       style={{ y, top }}
     >
       {image.map((image, index) => (
-        <div key={index} className="relative w-full h-full relative rounded-[1vw] overflow-hidden">
+        <div key={index} className="w-full h-full relative rounded-[1vw] overflow-hidden">
           <Image
             src={image}
             fill
