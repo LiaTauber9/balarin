@@ -11,7 +11,6 @@ import Image from 'next/image';
 
 export default function Home() {
 
-  // const [dimension, setDimension] = useState({ width: 0, height: 0 });
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
