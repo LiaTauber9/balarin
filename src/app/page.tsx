@@ -12,7 +12,6 @@ import useDimention from '@/utils/useDimention';
 
 export default function Home() {
 
-  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { width, height } = useDimention();
   const { scrollYProgress } = useScroll({
