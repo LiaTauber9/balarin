@@ -9,7 +9,7 @@ export const Hero = (isMobile: boolean) => {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     return (
-        <div className="w-full h-screen">
+        <div className="relative w-full h-screen">
             {/* Video Background */}
             <video
                 ref={videoRef}
