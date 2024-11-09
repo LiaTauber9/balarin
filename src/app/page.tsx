@@ -7,17 +7,22 @@ import { Hero } from '@/sections/Hero';
 // import ParallaxSection from '@/sections/ParallaxSection';
 import { images } from '@/assets/images';
 import Image from 'next/image';
+import useDimention from '@/utils/useDimention';
 
 
 export default function Home() {
 
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { width, height } = useDimention();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end start']
   });
-  const y = useTransform(scrollYProgress, [0, 1], [-50, 500]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, height * 2]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
+  const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
 
 
   useEffect(() => {
@@ -29,38 +34,15 @@ export default function Home() {
     requestAnimationFrame(raf);
   }, []);
 
-  // const resize = () => {
-  // setDimension({ width: window.innerWidth, height: window.innerHeight });
-  // }
-
-  // window.addEventListener('resize', resize);
-  // requestAnimationFrame(raf);
-  // resize();
-
-
-
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkScreenSize();
-
-    window.addEventListener('resize', checkScreenSize);
-
-    return () => {
-      window.removeEventListener('resize', checkScreenSize);
-    };
-  }, []);
 
   return (
     <main className={styles.main}>
-      {Hero(isMobile)}
+      {Hero(width <= 768)}
       <div className={styles.gallery} ref={containerRef}>
         <Column images={images.slice(0, 3)} y={y} />
-        <Column images={images.slice(3, 6)} />
-        <Column images={images.slice(6, 9)} />
-        <Column images={images.slice(9, 12)} />
+        <Column images={images.slice(3, 6)} y={y2} />
+        <Column images={images.slice(6, 9)} y={y3} />
+        <Column images={images.slice(9, 12)} y={y4} />
       </div>
       <div className="h-screen"></div>
 
