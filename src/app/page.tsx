@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './page.module.scss'
 import Lenis from '@studio-freight/lenis'
 import { useTransform, useScroll, motion, MotionValue } from 'framer-motion';
