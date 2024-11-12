@@ -1,7 +1,9 @@
 'use client';
-import { useEffect, useRef } from 'react';
+// import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+
 import styles from './page.module.scss'
-import Lenis from '@studio-freight/lenis'
+// import Lenis from '@studio-freight/lenis'
 import { useTransform, useScroll, motion, MotionValue } from 'framer-motion';
 import { Hero } from '@/sections/Hero';
 // import ParallaxSection from '@/sections/ParallaxSection';
@@ -24,14 +26,14 @@ export default function Home() {
   const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
 
 
-  useEffect(() => {
-    const lenis = new Lenis();
-    const raf = (time: number) => {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-    requestAnimationFrame(raf);
-  }, []);
+  // useEffect(() => {
+  //   const lenis = new Lenis();
+  //   const raf = (time: number) => {
+  //     lenis.raf(time)
+  //     requestAnimationFrame(raf)
+  //   }
+  //   requestAnimationFrame(raf);
+  // }, []);
 
 
   return (
@@ -49,7 +51,7 @@ export default function Home() {
   )
 }
 
-const Column = ({ images, y }: { images: string[], y?: MotionValue<number> }) => {
+const Column = ({ images, y= 0}: { images: string[], y: MotionValue<number> | number }) => {
   return (
     <motion.div className={styles.column} style={{ y }}>
       {images.map((src, index) => (

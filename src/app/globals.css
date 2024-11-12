@@ -5,6 +5,7 @@
 
 body{
   margin: 0px;
+  transition: ease-in-out 0.02s;
   /* font-family: 'Varela Round', sans-serif; */
 }
 
