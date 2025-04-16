@@ -2,7 +2,7 @@ import MenuIcon from '@/assets/icons/icon-menu.svg';
 import { logo } from '@/assets/images';
 import Image from 'next/image';
 // import { ItemTicker } from './ItemTicker';
-import SocialMediaIcons from '@/app/components/SocialMediaIcons';
+// import SocialMediaIcons from '@/app/components/SocialMediaIcons';
 import { useRouter } from 'next/navigation';
 
 
@@ -34,7 +34,7 @@ export const Header = ({ id }: { id?: string }) => {
               </span>
             </button>
           </div>
-          <SocialMediaIcons />
+          {/* <SocialMediaIcons /> */}
           {/* <div className='hidden md:block w-70% over-flow-hidden w-[50vw]'>
             <ItemTicker /> */}
             

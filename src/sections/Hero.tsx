@@ -4,8 +4,10 @@ import Image from 'next/image';
 import { useRef } from 'react';
 import { logo } from '@/assets/images';
 import { ItemTicker } from '@/sections/ItemTicker';
+import SocialMediaIcons from '@/app/components/SocialMediaIcons';
 
-export const Hero = (isMobile: boolean) => {
+
+export const Hero = (isMobile : boolean) => {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     return (
@@ -45,6 +47,12 @@ export const Hero = (isMobile: boolean) => {
                     </div>
                     
                 </div>
+                {/* Social Media Icons */}
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center md:top-1/2 md:-translate-y-1/2 md:right-auto md:left-0 md:pl-6 z-30">
+          <SocialMediaIcons
+            className="flex-row md:flex-col md:gap-y-6"
+          />
+        </div>
 
                 {/* Mask Div Above Animation */}
                 {/* <div className="absolute top-0 left-0 right-0 bottom-0 z-30 pointer-events-none [mask-image:linear-gradient(to right, transparent, black 20%, black 80%, transparent)]"></div> */}
