@@ -3,18 +3,27 @@ import { logo } from '@/assets/images';
 import Image from 'next/image';
 // import { ItemTicker } from './ItemTicker';
 import SocialMediaIcons from '@/app/components/SocialMediaIcons';
+import { useRouter } from 'next/navigation';
 
 
 
 export const Header = ({ id }: { id?: string }) => {
+  const router = useRouter();
+  const goToFormPage = () => {
+    router.push('/registration');
+  };
   const currColor = id === 'header' ? 'white' : '[#FC1EB5]';
+
   return (
     <header className="py-4 border-b border-[#FC1EB5]/15 md:border-none">
       {/* <div className="container"> */}
         <div className={`flex justify-between items-center text-${currColor} md:border border-${currColor}/15 md:p-2.5 rounded-xl w-[90vw] mx-auto backdrop-blur`}>
           <div className='flex items-center gap-4'>
             <MenuIcon  />
-            <button className="relative py-2 px-3 rounded-lg font-medium text-sm text-white bg-gradient-to-b from-[#190d2e] to-[#FC1EB5] shadow-[0px_0px_12px_#8c44ff]">
+            <button 
+              onClick={goToFormPage}
+              className="relative py-2 px-3 rounded-lg font-medium text-sm text-white bg-gradient-to-b from-[#190d2e] to-[#FC1EB5] shadow-[0px_0px_12px_#8c44ff]"
+            >
               <div className='absolute inset-0'>
                 <div className='rounded-lg border border-white/20 absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent)]' />
                 <div className='rounded-lg border border-white/40 absolute inset-0 [mask-image:linear-gradient(to_top,black,transparent)]' />
