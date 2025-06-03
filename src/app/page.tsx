@@ -39,11 +39,20 @@ export default function Home() {
   return (
     <main className={styles.main}>
       {Hero(width <= 768)}
-      <div className={styles.gallery} ref={containerRef}>
-        <Column images={images.slice(0, 3)} y={y} />
-        <Column images={images.slice(3, 6)} y={y2} />
-        <Column images={images.slice(6, 9)} y={y3} />
-        <Column images={images.slice(9, 12)} y={y4} />
+      <div className="relative flex h-[175vh] gap-[2vw] overflow-hidden box-border" ref={containerRef}>
+      {width <= 768 ? (
+          <>
+            <Column images={images.slice(0, 6)} y={y2} className="-top-[95%]" />
+            <Column images={images.slice(6, 12)} y={y3} className="-top-[45%]" />
+          </>
+        ) : (
+          <>
+            <Column images={images.slice(0, 3)} y={y} className="-top-[45%]" />
+            <Column images={images.slice(3, 6)} y={y2} className="-top-[95%]" />
+            <Column images={images.slice(6, 9)} y={y3} className="-top-[45%]" />
+            <Column images={images.slice(9, 12)} y={y4} className="-top-[75%]" />
+          </>
+        )}
       </div>
       <div className="h-screen"></div>
 
@@ -51,15 +60,20 @@ export default function Home() {
   )
 }
 
-const Column = ({ images, y= 0}: { images: string[], y: MotionValue<number> | number }) => {
+const Column = ({ images, y= 0, className=''}: { images: string[], y: MotionValue<number> | number, className?: string; }) => {
   return (
-    <motion.div className={styles.column} style={{ y }}>
+    <motion.div 
+      className={`relative flex h-full w-1/4 min-w-[250px] flex-col gap-[2vw] transition-all duration-[20ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] max-md:w-1/2 max-md:min-w-[100px] ${className}`} 
+      style={{ y }}
+      >
       {images.map((src, index) => (
-        <div key={index} className={styles.imageContainer}>
-          <Image src={src} alt="Image" fill />
+        <div key={index} className="relative h-full w-full min-w-[250px] overflow-hidden rounded-[1vw] max-md:min-w-[100px]">
+          <Image src={src} alt="Image" fill className="object-cover" />
         </div>
       ))}
     </motion.div>
   );
 
 }
+
+
