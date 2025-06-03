@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import styles from './page.module.scss'
 import Lenis from '@studio-freight/lenis'
 import { useTransform, useScroll, motion, MotionValue } from 'framer-motion';
-// import { Hero } from '@/sections/Hero';
+import { Hero } from '@/sections/Hero';
 // import ParallaxSection from '@/sections/ParallaxSection';
 import { images } from '@/assets/images';
 import Image from 'next/image';
@@ -38,8 +38,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      {/* {Hero(width <= 768)} */}
-      <div className="h-screen"></div>
+      {Hero(width <= 768)}
       <div className="relative flex h-[175vh] gap-[2vw] overflow-hidden box-border" ref={containerRef}>
       {width <= 768 ? (
           <>
