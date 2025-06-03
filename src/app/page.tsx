@@ -15,15 +15,15 @@ import useDimention from '@/utils/useDimention';
 export default function Home() {
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const { width, height } = useDimention();
+  const { width } = useDimention();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end start']
   });
-  const y = useTransform(scrollYProgress, [0, 1], [0, height * 2]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
-  const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 1600]);
+const y2 = useTransform(scrollYProgress, [0, 1], [0, 2640]);
+const y3 = useTransform(scrollYProgress, [0, 1], [0, 1000]);
+const y4 = useTransform(scrollYProgress, [0, 1], [0, 2400]);
 
 
   useEffect(() => {
