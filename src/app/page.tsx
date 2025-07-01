@@ -6,7 +6,6 @@ import styles from './page.module.scss'
 import Lenis from '@studio-freight/lenis'
 import { useTransform, useScroll, motion, MotionValue } from 'framer-motion';
 import { Hero } from '@/sections/Hero';
-// import ParallaxSection from '@/sections/ParallaxSection';
 import { images } from '@/assets/images';
 import Image from 'next/image';
 import useDimention from '@/utils/useDimention';
@@ -24,7 +23,6 @@ export default function Home() {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
   const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
   const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
-
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -63,7 +61,7 @@ export default function Home() {
 const Column = ({ images, y= 0, className=''}: { images: string[], y: MotionValue<number> | number, className?: string; }) => {
   return (
     <motion.div 
-      className={`relative flex h-full w-1/4 min-w-[250px] flex-col gap-[2vw] transition-all duration-[20ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] max-md:w-1/2 max-md:min-w-[100px] ${className}`} 
+      className={`relative flex h-full w-1/4 min-w-[250px] flex-col gap-[2vw] max-md:w-1/2 max-md:min-w-[100px] ${className}`} 
       style={{ y }}
       >
       {images.map((src, index) => (
