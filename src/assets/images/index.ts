@@ -10,7 +10,7 @@ import image9 from './9.jpeg';
 import image10 from './10.jpeg';
 import image11 from './11.jpeg';
 import image12 from './12.jpeg';
-import logoImage from './logo.png';
+import logoImage from './logo1.png';
 
 export const images = [
   image1,
