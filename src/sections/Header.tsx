@@ -45,7 +45,7 @@ export const Header = ({ id }: { id?: string }) => {
               <a href="" className='text-white/70 hover:text-white transition'>ריקוד לבת-מצווה</a>
             </nav> */}
           {/* </div> */}
-          <div className='border h-10 w-16 rounded-lg inline-flex justify-center items-center border-[#FC1EB5]/20'><Image src={logo.src} alt='Balarin' width={52} height={56} /></div>
+          <div className='border h-10 w-16 rounded-lg inline-flex justify-center items-center border-[#FC1EB5]/20'><Image src={logo.src} alt='Balarin' width={60} height={60} /></div>
         </div>
       {/* </div> */}
     </header>
