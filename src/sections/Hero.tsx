@@ -23,7 +23,7 @@ export const Hero = (isMobile : boolean) => {
             />
 
             {/* Overlay Content */}
-            <div className="relative z-10">
+            <div className="relative z-10 h-[100svh]" >
                 {/* Header with sticky positioning */}
                 <div className="sticky top-0 bottom-[10vh] z-20">
                     <Header id="header" />
